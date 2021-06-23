@@ -8,4 +8,12 @@ public class PlayRequest {
         this.player1 = player1;
         this.player2 = player2;
     }
+
+    public String getPlayer1() {
+        return player1;
+    }
+
+    public String getPlayer2() {
+        return player2;
+    }
 }
