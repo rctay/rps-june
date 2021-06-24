@@ -30,4 +30,17 @@ class RpsApplicationTests {
         assertEquals("Player 1 Wins!", response.getBody());
     }
 
+    @Test
+    void scissorsVsRock_returnsPlayer2Wins() {
+        // arrange
+
+        // act
+        ResponseEntity<String> response = restTemplate.postForEntity("/play",
+                new PlayRequest("SCISSORS", "ROCK"),
+                String.class);
+
+        // assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Player 2 Wins!", response.getBody());
+    }
 }
