@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.xp.rps.game.Result.*;
 import static com.xp.rps.game.Throw.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RpsTest {
 
@@ -54,5 +55,17 @@ public class RpsTest {
     @Test
     void scissorsVsScissors() {
         assertEquals(DRAW, RPS.play(SCISSORS, SCISSORS));
+    }
+
+    @Test
+    void callsIncrementOnRepo() {
+        // arrange
+        RoundRepositorySpy repoSpy = new RoundRepositorySpy();
+
+        // act
+        RPS.play(ROCK, SCISSORS, repoSpy);
+
+        // assert
+        assertTrue(repoSpy.incrementWasCalled);
     }
 }
