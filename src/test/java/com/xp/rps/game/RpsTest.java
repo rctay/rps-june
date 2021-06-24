@@ -1,9 +1,10 @@
-package com.xp.rps;
+package com.xp.rps.game;
 
+import com.xp.rps.game.RPS;
 import org.junit.jupiter.api.Test;
 
-import static com.xp.rps.Result.*;
-import static com.xp.rps.Throw.*;
+import static com.xp.rps.game.Result.*;
+import static com.xp.rps.game.Throw.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RpsTest {

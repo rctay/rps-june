@@ -1,4 +1,4 @@
-package com.xp.rps;
+package com.xp.rps.game;
 
 public enum Throw {
     SCISSORS, ROCK, PAPER

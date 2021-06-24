@@ -1,4 +1,4 @@
-package com.xp.rps;
+package com.xp.rps.play;
 
 public class PlayRequest {
     private final String player1;

@@ -1,7 +1,7 @@
-package com.xp.rps;
+package com.xp.rps.game;
 
-import static com.xp.rps.Result.*;
-import static com.xp.rps.Throw.*;
+import static com.xp.rps.game.Result.*;
+import static com.xp.rps.game.Throw.*;
 
 public class RPS {
     public static Result play(Throw player1, Throw player2) {

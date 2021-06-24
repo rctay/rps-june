@@ -1,5 +1,8 @@
-package com.xp.rps;
+package com.xp.rps.play;
 
+import com.xp.rps.game.RPS;
+import com.xp.rps.game.Result;
+import com.xp.rps.game.Throw;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
