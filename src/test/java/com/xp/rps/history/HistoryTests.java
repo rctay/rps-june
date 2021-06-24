@@ -1,5 +1,6 @@
 package com.xp.rps.history;
 
+import com.xp.rps.play.PlayRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,5 +27,20 @@ public class HistoryTests {
         // assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(0, response.getBody());
+    }
+
+    @Test
+    void roundWasPlayed_returns1() {
+        // arrange / setup
+        restTemplate.postForEntity("/play",
+                new PlayRequest("ROCK", "SCISSORS"),
+                String.class);
+
+        // act
+        ResponseEntity<Integer> response = restTemplate.getForEntity("/count", Integer.class);
+
+        // assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(1, response.getBody());
     }
 }
