@@ -7,7 +7,7 @@ import static com.xp.rps.game.Throw.*;
 
 public class RPS {
 
-    public static Result playWithRoundRepo(Throw player1, Throw player2, RoundRepository roundRepo) {
+    public static Result play(Throw player1, Throw player2, RoundRepository roundRepo) {
         roundRepo.increment();
 
         if (player1 == player2) {

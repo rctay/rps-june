@@ -21,7 +21,7 @@ public class PlayController {
         Throw player1 = Throw.valueOf(request.getPlayer1());
         Throw player2 = Throw.valueOf(request.getPlayer2());
 
-        Result result = RPS.playWithRoundRepo(player1, player2, roundRepo);
+        Result result = RPS.play(player1, player2, roundRepo);
 
         if (result == Result.P1_WINS) {
             return "Player 1 Wins!";
