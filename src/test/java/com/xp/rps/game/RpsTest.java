@@ -1,8 +1,5 @@
 package com.xp.rps.game;
 
-import com.xp.rps.game.RPS;
-import com.xp.rps.history.RoundRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,58 +9,58 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RpsTest {
-    private RoundRepositoryDouble roundRepoDouble;
+    private RoundRepositoryDummy roundRepoDummy;
 
     // S > P > R > S
 
     @BeforeEach
     void setUp() {
-        roundRepoDouble = new RoundRepositoryDouble();
+        roundRepoDummy = new RoundRepositoryDummy();
     }
 
     @Test
     void scissorsVsPaper() {
-        assertEquals(P1_WINS, RPS.playWithRoundRepo(SCISSORS, PAPER, roundRepoDouble));
+        assertEquals(P1_WINS, RPS.playWithRoundRepo(SCISSORS, PAPER, roundRepoDummy));
     }
 
     @Test
     void rockVsPaper() {
-        assertEquals(P2_WINS, RPS.playWithRoundRepo(ROCK, PAPER, roundRepoDouble));
+        assertEquals(P2_WINS, RPS.playWithRoundRepo(ROCK, PAPER, roundRepoDummy));
     }
 
     @Test
     void rockVsScissors() {
-        assertEquals(P1_WINS, RPS.playWithRoundRepo(ROCK, SCISSORS, roundRepoDouble));
+        assertEquals(P1_WINS, RPS.playWithRoundRepo(ROCK, SCISSORS, roundRepoDummy));
     }
 
     @Test
     void scissorsVsRock() {
-        assertEquals(P2_WINS, RPS.playWithRoundRepo(SCISSORS, ROCK, roundRepoDouble));
+        assertEquals(P2_WINS, RPS.playWithRoundRepo(SCISSORS, ROCK, roundRepoDummy));
     }
 
     @Test
     void paperVsScissors() {
-        assertEquals(P2_WINS, RPS.playWithRoundRepo(PAPER, SCISSORS, roundRepoDouble));
+        assertEquals(P2_WINS, RPS.playWithRoundRepo(PAPER, SCISSORS, roundRepoDummy));
     }
 
     @Test
     void paperVsRock() {
-        assertEquals(P1_WINS, RPS.playWithRoundRepo(PAPER, ROCK, roundRepoDouble));
+        assertEquals(P1_WINS, RPS.playWithRoundRepo(PAPER, ROCK, roundRepoDummy));
     }
 
     @Test
     void rockVsRock() {
-        assertEquals(DRAW, RPS.playWithRoundRepo(ROCK, ROCK, roundRepoDouble));
+        assertEquals(DRAW, RPS.playWithRoundRepo(ROCK, ROCK, roundRepoDummy));
     }
 
     @Test
     void paperVsPaper() {
-        assertEquals(DRAW, RPS.playWithRoundRepo(PAPER, PAPER, roundRepoDouble));
+        assertEquals(DRAW, RPS.playWithRoundRepo(PAPER, PAPER, roundRepoDummy));
     }
 
     @Test
     void scissorsVsScissors() {
-        assertEquals(DRAW, RPS.playWithRoundRepo(SCISSORS, SCISSORS, roundRepoDouble));
+        assertEquals(DRAW, RPS.playWithRoundRepo(SCISSORS, SCISSORS, roundRepoDummy));
     }
 
     @Test
