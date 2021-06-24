@@ -6,7 +6,10 @@ import static com.xp.rps.game.Result.*;
 import static com.xp.rps.game.Throw.*;
 
 public class RPS {
-    public static Result play(Throw player1, Throw player2) {
+
+    public static Result playWithRoundRepo(Throw player1, Throw player2, RoundRepository roundRepo) {
+        roundRepo.increment();
+
         if (player1 == player2) {
             return DRAW;
         }
@@ -17,13 +20,5 @@ public class RPS {
         ) return P2_WINS;
 
         return P1_WINS;
-    }
-
-    public static Result playWithRoundRepo(Throw player1, Throw player2, RoundRepository roundRepo) {
-        Result result = RPS.play(player1, player2);
-
-        roundRepo.increment();
-
-        return result;
     }
 }
