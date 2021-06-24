@@ -1,5 +1,7 @@
 package com.xp.rps.game;
 
+import com.xp.rps.history.RoundRepository;
+
 import static com.xp.rps.game.Result.*;
 import static com.xp.rps.game.Throw.*;
 
@@ -15,5 +17,13 @@ public class RPS {
         ) return P2_WINS;
 
         return P1_WINS;
+    }
+
+    public static Result playWithRoundRepo(Throw player1, Throw player2, RoundRepository roundRepo) {
+        Result result = RPS.play(player1, player2);
+
+        roundRepo.increment();
+
+        return result;
     }
 }

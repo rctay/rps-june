@@ -63,7 +63,7 @@ public class RpsTest {
         RoundRepositorySpy repoSpy = new RoundRepositorySpy();
 
         // act
-        RPS.play(ROCK, SCISSORS, repoSpy);
+        RPS.playWithRoundRepo(ROCK, SCISSORS, repoSpy);
 
         // assert
         assertTrue(repoSpy.incrementWasCalled);
