@@ -64,7 +64,7 @@ public class RpsTest {
     }
 
     @Test
-    void callsIncrementOnRepo() {
+    void callsRoundPlayedOnGameObserver() {
         // arrange
         GameObserverSpy gameObserverSpy = new GameObserverSpy();
 
