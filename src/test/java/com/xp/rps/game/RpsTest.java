@@ -9,69 +9,69 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RpsTest {
-    private RoundRepositoryDummy roundRepoDummy;
+    private GameObserverDummy gameObserverDummy;
 
     // S > P > R > S
 
     @BeforeEach
     void setUp() {
-        roundRepoDummy = new RoundRepositoryDummy();
+        gameObserverDummy = new GameObserverDummy();
     }
 
     @Test
     void scissorsVsPaper() {
-        assertEquals(P1_WINS, RPS.play(SCISSORS, PAPER, roundRepoDummy));
+        assertEquals(P1_WINS, RPS.play(SCISSORS, PAPER, gameObserverDummy));
     }
 
     @Test
     void rockVsPaper() {
-        assertEquals(P2_WINS, RPS.play(ROCK, PAPER, roundRepoDummy));
+        assertEquals(P2_WINS, RPS.play(ROCK, PAPER, gameObserverDummy));
     }
 
     @Test
     void rockVsScissors() {
-        assertEquals(P1_WINS, RPS.play(ROCK, SCISSORS, roundRepoDummy));
+        assertEquals(P1_WINS, RPS.play(ROCK, SCISSORS, gameObserverDummy));
     }
 
     @Test
     void scissorsVsRock() {
-        assertEquals(P2_WINS, RPS.play(SCISSORS, ROCK, roundRepoDummy));
+        assertEquals(P2_WINS, RPS.play(SCISSORS, ROCK, gameObserverDummy));
     }
 
     @Test
     void paperVsScissors() {
-        assertEquals(P2_WINS, RPS.play(PAPER, SCISSORS, roundRepoDummy));
+        assertEquals(P2_WINS, RPS.play(PAPER, SCISSORS, gameObserverDummy));
     }
 
     @Test
     void paperVsRock() {
-        assertEquals(P1_WINS, RPS.play(PAPER, ROCK, roundRepoDummy));
+        assertEquals(P1_WINS, RPS.play(PAPER, ROCK, gameObserverDummy));
     }
 
     @Test
     void rockVsRock() {
-        assertEquals(DRAW, RPS.play(ROCK, ROCK, roundRepoDummy));
+        assertEquals(DRAW, RPS.play(ROCK, ROCK, gameObserverDummy));
     }
 
     @Test
     void paperVsPaper() {
-        assertEquals(DRAW, RPS.play(PAPER, PAPER, roundRepoDummy));
+        assertEquals(DRAW, RPS.play(PAPER, PAPER, gameObserverDummy));
     }
 
     @Test
     void scissorsVsScissors() {
-        assertEquals(DRAW, RPS.play(SCISSORS, SCISSORS, roundRepoDummy));
+        assertEquals(DRAW, RPS.play(SCISSORS, SCISSORS, gameObserverDummy));
     }
 
     @Test
     void callsIncrementOnRepo() {
         // arrange
-        RoundRepositorySpy repoSpy = new RoundRepositorySpy();
+        GameObserverSpy gameObserverSpy = new GameObserverSpy();
 
         // act
-        RPS.play(ROCK, SCISSORS, repoSpy);
+        RPS.play(ROCK, SCISSORS, gameObserverSpy);
 
         // assert
-        assertTrue(repoSpy.incrementWasCalled);
+        assertTrue(gameObserverSpy.roundPlayedWasCalled);
     }
 }

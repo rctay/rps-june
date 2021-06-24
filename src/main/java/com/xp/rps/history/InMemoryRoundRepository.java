@@ -1,9 +1,10 @@
 package com.xp.rps.history;
 
+import com.xp.rps.game.GameObserver;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class InMemoryRoundRepository implements RoundRepository {
+public class InMemoryRoundRepository implements RoundRepository, GameObserver {
 
     private int count = 0;
 
@@ -13,7 +14,7 @@ public class InMemoryRoundRepository implements RoundRepository {
     }
 
     @Override
-    public void increment() {
+    public void roundPlayed() {
         count += 1;
     }
 }

@@ -16,7 +16,7 @@ public class InMemoryRoundRepositoryTests {
     void getCount_oneRoundPlayed_returns1() {
         InMemoryRoundRepository subject = new InMemoryRoundRepository();
 
-        subject.increment();
+        subject.roundPlayed();
 
         assertEquals(1, subject.getCount());
     }
