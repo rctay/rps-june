@@ -19,7 +19,6 @@ public class HistoryTests {
     @Test
     void noRoundsPlayed_returns0() {
         // arrange
-        // not too sure what setup....
 
         // act
         ResponseEntity<Integer> response = restTemplate.getForEntity("/count", Integer.class);
