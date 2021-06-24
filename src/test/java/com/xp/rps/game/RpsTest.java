@@ -2,6 +2,8 @@ package com.xp.rps.game;
 
 import com.xp.rps.game.RPS;
 import com.xp.rps.history.RoundRepository;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.xp.rps.game.Result.*;
@@ -13,6 +15,11 @@ public class RpsTest {
     private RoundRepositoryDouble roundRepoDouble;
 
     // S > P > R > S
+
+    @BeforeEach
+    void setUp() {
+        roundRepoDouble = new RoundRepositoryDouble();
+    }
 
     @Test
     void scissorsVsPaper() {
