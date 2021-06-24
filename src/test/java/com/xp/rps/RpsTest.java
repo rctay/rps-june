@@ -2,8 +2,7 @@ package com.xp.rps;
 
 import org.junit.jupiter.api.Test;
 
-import static com.xp.rps.Result.P1_WINS;
-import static com.xp.rps.Result.P2_WINS;
+import static com.xp.rps.Result.*;
 import static com.xp.rps.Throw.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -41,4 +40,18 @@ public class RpsTest {
         assertEquals(P1_WINS, RPS.play(PAPER, ROCK));
     }
 
+    @Test
+    void rockVsRock() {
+        assertEquals(DRAW, RPS.play(ROCK, ROCK));
+    }
+
+    @Test
+    void paperVsPaper() {
+        assertEquals(DRAW, RPS.play(PAPER, PAPER));
+    }
+
+    @Test
+    void scissorsVsScissors() {
+        assertEquals(DRAW, RPS.play(SCISSORS, SCISSORS));
+    }
 }
